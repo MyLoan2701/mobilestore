@@ -1,0 +1,30 @@
+<?php 
+                    while($phone = mysqli_fetch_array($data['phone'])) {?>
+                    <div class="product-item">
+                        <a href="./productDetail" class="link-product">
+                            <div class="item-label">
+                                <span class="lb-hot">hot</span>
+                            </div>
+                            <div class="item-img">
+                                <img src="public/images/products/phones/<?php echo $phone['img']?>" alt="<?php echo $phone['name']?>" width="207" height="207" class="product-img">
+                            </div>
+                            <h3 class="product-name"><?php echo $phone['name']?></h3>
+                            <strong class="price">
+                                <?php echo $this->formatPrice($this->formatSale($phone['price'], $phone['sale'])); ?>
+                                <small class="sale">-<?php echo $phone['sale'] ?>%</small>
+                            </strong>
+                            <?php 
+                                    if($phone['sale'] > 0) {?>
+                                    <div class="price-old"><?php echo $this->formatPrice($phone['price']) ?></div>
+                                        <?php
+                                    }
+                                    ?>
+                        </a>
+                    </div>
+                        <?php
+                    }
+                    ?>
+
+
+
+                    

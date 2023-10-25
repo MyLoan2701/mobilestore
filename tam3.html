@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="/public/css/fontawesome-free-6.2.0-web/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="/public/css/styleAdmin.css">
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+        <title>Admin App</title>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="header-admin clearfix">
+                <div class="header-content">
+                    <div class="header-left">
+                        <div class="header-logo">
+                            <p class="logo-store t-upper">
+                                <a href="./homeadmin" class="home-store">
+                                    UED<span style="color: #00e3ff; font-size:45px;">IT</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-notify">
+                            <a href="">
+                                <i class="fa-solid fa-bell"></i>
+                            </a>
+                        </div>
+                        <div class="header-account">
+                            <a href="" class="account-admin">
+                                <i class="fa-solid fa-user"></i>
+                            </a>
+                        </div>
+                        <div class="header-logout">
+                            <a href="">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                <div class="logout-admin">Đăng xuất</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-admin clearfix">
+                <div class="main-content">
+                    <div class="sidebar clearfix">
+                        <div class="sidebar-wrapper">
+                            <ul class="sidebar-list">
+                                <li>
+                                    <a href="admin" class="active">
+                                        <i class="fa-solid fa-house"></i>
+                                        Trang chủ
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="admin/showMgCategoty">
+                                        <i class="fa-solid fa-folder"></i>
+                                        Quản lý danh mục
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="admin/showMgProduct">
+                                        <i class="fa-solid fa-mobile"></i>
+                                        Quản lý sản phẩm
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="admin/showMgOrder/waiting">
+                                        <i class="fa-solid fa-file-lines"></i>
+                                        Quản lý đơn hàng
+                                    </a>
+                                </li>
+                                <li id="mg-user">
+                                    <a onclick="userItem()">
+                                        <i class="fa-solid fa-user"></i>
+                                        Quản lý tài khoản
+                                    </a>
+                                    <div id="user-item">
+                                        <a href="admin/showMgClient">Khách hàng</a>
+                                        <a href="admin/showMgAdmin">Admin</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-chart-pie"></i>
+                                        Thống kê
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="right-admin statistical-admin">
+                            <div class="right-content statistical-content">
+                                <div class="top-content">
+                                    <div class="title-statis">
+                                        Thống kê cửa hàng
+                                    </div>
+                                    <div class="search">
+                                        <form action="./search/searchStatisticalA" class="search-form">
+                                            <input type="text" class="ipt input-search" placeholder="Tìm kiếm..."
+                                            name="key" maxlength="100" autocomplete="of" required>
+                                            <button class="btn-search" type="submit" name="search">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="chart-statis">
+                                    <div id="chart" style="height: 250px;"></div>
+                                    <script src="/public/js/chartMorrisLine.js"></script>
+                                </div>
+                        
+                                <div class="table-content statis-list">
+                                    <table class="table-mng table-statis">
+                                        <tr class="info-table-title">
+                                            <th>STT</th>
+                                            <th>Mục thống kê</th>
+                                            <th>Chi tiết</th>
+                                        </tr>
+                                        <tr class="info-table-item">
+                                            <td>1</td>
+                                            <td>Danh mục</td>
+                                            <td>
+                                                <span>Tổng: 15</span><br>
+                                                <span>Hoạt động: 14</span><br>
+                                                <span>Dừng hoạt động: 1</span><br>
+                                                <span><a href="./admin/showMgCategoty">Xem tất cả danh mục</a></span>
+                                            </td>
+                                        </tr>
+                                        <tr class="info-table-item">
+                                            <td>2</td>
+                                            <td>Sản phẩm</td>
+                                            <td>
+                                                <span>Tổng: 15</span><br>
+                                                <span>Hoạt động: 14</span><br>
+                                                <span>Dừng hoạt động: 1</span><br>
+                                                <span>Tổng đã bán: 100</span>
+                                                <span><a href="./admin/showMgProduct">Xem tất cả danh mục</a></span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="footer-admin clearfix">
+                <div class="footer-copyright">© 2022 by My Loan</div>
+            </div> -->
+        </div>
+        <script src="/public/js/MyScriptAdmin.js"></script>
+    </body>
+</html>
